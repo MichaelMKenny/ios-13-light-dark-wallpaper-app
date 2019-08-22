@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vzg-gN-yym" userLabel="Light Wallpaper Preview">
+                                <rect key="frame" x="107" y="209" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="9JH-dn-f3M"/>
+                                    <constraint firstAttribute="width" secondItem="Vzg-gN-yym" secondAttribute="height" multiplier="1:1" id="iRC-Be-aXU"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1OA-sd-fF4">
+                                <rect key="frame" x="105" y="417" width="204" height="14"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Choose Light Wallpaper…"/>
+                                <connections>
+                                    <action selector="chooseLightWallpaper:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nMR-3q-nA2"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I8V-Cv-Sxh" userLabel="Dark Wallpaper Preview">
+                                <rect key="frame" x="107" y="475" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="R4N-QJ-uKN"/>
+                                    <constraint firstAttribute="width" secondItem="I8V-Cv-Sxh" secondAttribute="height" multiplier="1:1" id="iWg-p6-w5g"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwn-bX-zOm">
+                                <rect key="frame" x="106.5" y="683" width="201" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="2sR-hJ-gvG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Choose Dark Wallpaper…"/>
+                                <connections>
+                                    <action selector="chooseDarkWallpaper:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z4o-WQ-mMh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeQ-Xx-5S5">
+                                <rect key="frame" x="117.5" y="741" width="179" height="48"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <state key="normal" title="Set Wallpaper"/>
+                                <connections>
+                                    <action selector="setWallpaper:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dzR-NQ-G6A"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xwn-bX-zOm" firstAttribute="top" secondItem="I8V-Cv-Sxh" secondAttribute="bottom" constant="8" id="7Ht-Bc-hky"/>
+                            <constraint firstItem="xwn-bX-zOm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="AYN-7M-rxn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="I8V-Cv-Sxh" secondAttribute="bottom" constant="16" id="C1U-I7-jpx"/>
+                            <constraint firstItem="eeQ-Xx-5S5" firstAttribute="top" secondItem="xwn-bX-zOm" secondAttribute="bottom" constant="44" id="Gt3-AN-SDi"/>
+                            <constraint firstItem="I8V-Cv-Sxh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MJS-DH-ChX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="centerY" secondItem="1OA-sd-fF4" secondAttribute="bottom" constant="22" id="QSE-k6-vtX"/>
+                            <constraint firstItem="Vzg-gN-yym" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bAA-yF-hPG"/>
+                            <constraint firstItem="Vzg-gN-yym" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="cCQ-Hu-HkM"/>
+                            <constraint firstItem="Vzg-gN-yym" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-44" id="hDj-hs-JK8"/>
+                            <constraint firstItem="I8V-Cv-Sxh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="22" id="hzy-lv-bH3"/>
+                            <constraint firstItem="1OA-sd-fF4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="jNN-QM-V6N"/>
+                            <constraint firstItem="1OA-sd-fF4" firstAttribute="top" secondItem="Vzg-gN-yym" secondAttribute="bottom" constant="8" id="kz7-ED-Zag"/>
+                            <constraint firstItem="eeQ-Xx-5S5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="yyD-A6-F5b"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="darkImageView" destination="I8V-Cv-Sxh" id="3v5-Ls-cTq"/>
+                        <outlet property="lightImageView" destination="Vzg-gN-yym" id="iIO-e9-iEg"/>
+                        <outlet property="setWallpaperButton" destination="eeQ-Xx-5S5" id="bra-qS-gb3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="121"/>
+        </scene>
+    </scenes>
+</document>
