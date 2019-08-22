@@ -6,4 +6,4 @@ This was achieved through reverse-engineering Apple's private frameworks. The re
 
 Basically the trick that took me forever to figure out was the missing private entitlement `com.apple.springboard.wallpaper-access`. Because that entitlement is required, this app can't be built and signed onto a real device, only the Simulator and Jailbroken devices :(
 
-![App with light and dark wallpapers ready to be set](Set-Wallpaper-Screenshot.png)
+<img alt="App with light and dark wallpapers ready to be set" src="Set-Wallpaper-Screenshot.png" width="200">
