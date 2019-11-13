@@ -8,4 +8,4 @@
 
 @import UIKit;
 
-void setLightAndDarkWallpaperImages(UIImage *lightImage, UIImage *darkImage);
+void setLightAndDarkWallpaperImages(UIImage *lightImage, UIImage *darkImage, int locations);

@@ -31,7 +31,7 @@ void callIntegerSetMethodOnTarget(SEL selector, id target, NSInteger arg2) {
     [inv invoke];
 }
 
-void setLightAndDarkWallpaperImages(UIImage *lightImage, UIImage *darkImage) {
+void setLightAndDarkWallpaperImages(UIImage *lightImage, UIImage *darkImage, int locations) {
     loadPrivateFramework(@"SpringBoardFoundation.framework");
 
 #pragma clang diagnostic push
@@ -51,7 +51,7 @@ void setLightAndDarkWallpaperImages(UIImage *lightImage, UIImage *darkImage) {
     int (*_SBSUIWallpaperSetImages)(id imageDict, id optionsDict, int locations, int interfaceStyle) = dlsym(sbsUILib, "SBSUIWallpaperSetImages");
     _SBSUIWallpaperSetImages(@{@"light": lightImage, @"dark": darkImage},
                              @{@"light": lightOptions, @"dark": darkOptions},
-                             3,
+                             locations,
                              UIUserInterfaceStyleDark);
 
 #pragma clang diagnostic pop

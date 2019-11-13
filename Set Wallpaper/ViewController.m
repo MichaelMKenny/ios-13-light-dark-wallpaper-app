@@ -24,6 +24,8 @@
 
 @implementation ViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -36,22 +38,45 @@
     self.darkImageView.backgroundColor = backgroundColor;
 }
 
+
+#pragma mark - Actions
+
 - (IBAction)chooseLightWallpaper:(id)sender {
     self.currentButton = light;
-    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-        if (status == PHAuthorizationStatusAuthorized) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-                [self presentViewController:imagePicker animated:YES completion:^{
-                    imagePicker.delegate = self;
-                }];
-                
-            });
-        }
-    }];
+    [self pickImage];
 }
+
 - (IBAction)chooseDarkWallpaper:(id)sender {
     self.currentButton = dark;
+    [self pickImage];
+}
+
+- (IBAction)setWallpaper:(id)sender {
+    UIAlertController *locationPicker = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [locationPicker addAction:[UIAlertAction actionWithTitle:@"Set Lock Screen" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        setLightAndDarkWallpaperImages(self.lightImage, self.darkImage, 1);
+    }]];
+    [locationPicker addAction:[UIAlertAction actionWithTitle:@"Set Home Screen" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        setLightAndDarkWallpaperImages(self.lightImage, self.darkImage, 2);
+    }]];
+    [locationPicker addAction:[UIAlertAction actionWithTitle:@"Set Both" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        setLightAndDarkWallpaperImages(self.lightImage, self.darkImage, 3);
+    }]];
+    [locationPicker addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    [locationPicker setModalPresentationStyle:UIModalPresentationPopover];
+    UIPopoverPresentationController *popPresenter = locationPicker.popoverPresentationController;
+    popPresenter.sourceView = self.setWallpaperButton;
+    popPresenter.sourceRect = self.setWallpaperButton.bounds;
+    
+    [self presentViewController:locationPicker animated:YES completion:nil];
+}
+
+
+#pragma mark - Helpers
+
+- (void)pickImage {
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
         if (status == PHAuthorizationStatusAuthorized) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -59,15 +84,13 @@
                 [self presentViewController:imagePicker animated:YES completion:^{
                     imagePicker.delegate = self;
                 }];
-                
             });
         }
     }];
 }
 
-- (IBAction)setWallpaper:(id)sender {
-    setLightAndDarkWallpaperImages(self.lightImage, self.darkImage);
-}
+
+#pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
     PHAsset *asset = info[UIImagePickerControllerPHAsset];
