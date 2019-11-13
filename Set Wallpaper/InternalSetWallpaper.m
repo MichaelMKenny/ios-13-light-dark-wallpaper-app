@@ -5,7 +5,7 @@
 static NSString *frameworkPath(NSString *framework) {
         NSString *path;
     #if TARGET_OS_SIMULATOR
-        path = @"/Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneOS.platform/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks";
+        path = @"/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks";
     #else
         path = @"/System/Library/PrivateFrameworks";
     #endif
