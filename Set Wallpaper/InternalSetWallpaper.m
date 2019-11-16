@@ -31,7 +31,15 @@ void callIntegerSetMethodOnTarget(SEL selector, id target, NSInteger arg2) {
     [inv invoke];
 }
 
-void setLightAndDarkWallpaperImages(UIImage *lightImage, UIImage *darkImage, int locations) {
+void callDoubleSetMethodOnTarget(SEL selector, id target, double arg2) {
+    NSInvocation *inv = [NSInvocation invocationWithMethodSignature:[target methodSignatureForSelector:selector]];
+    [inv setSelector:selector];
+    [inv setTarget:target];
+    [inv setArgument:&arg2 atIndex:2];
+    [inv invoke];
+}
+
+void setLightAndDarkWallpaperImages(UIImage *lightImage, UIImage *darkImage, int locations, double parallaxFactor) {
     loadPrivateFramework(@"SpringBoardFoundation.framework");
 
 #pragma clang diagnostic push
@@ -43,10 +51,12 @@ void setLightAndDarkWallpaperImages(UIImage *lightImage, UIImage *darkImage, int
 
     id lightOptions = [[SBFWallpaperOptions alloc] performSelector:initSelector];
     callIntegerSetMethodOnTarget(@selector(setWallpaperMode:), lightOptions, 1);
+    callDoubleSetMethodOnTarget(@selector(setParallaxFactor:), lightOptions, parallaxFactor);
 
     id darkOptions = [[SBFWallpaperOptions alloc] performSelector:initSelector];
     callIntegerSetMethodOnTarget(@selector(setWallpaperMode:), darkOptions, 2);
-    
+    callDoubleSetMethodOnTarget(@selector(setParallaxFactor:), darkOptions, parallaxFactor);
+
     void *sbsUILib = loadFrameworkLibrary(@"SpringBoardUIServices.framework");
     int (*_SBSUIWallpaperSetImages)(id imageDict, id optionsDict, int locations, int interfaceStyle) = dlsym(sbsUILib, "SBSUIWallpaperSetImages");
     _SBSUIWallpaperSetImages(@{@"light": lightImage, @"dark": darkImage},

@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *darkImageView;
 @property (nonatomic, strong) UIImage *lightImage;
 @property (nonatomic, strong) UIImage *darkImage;
+@property (weak, nonatomic) IBOutlet UISwitch *parallaxSwitch;
 
 @end
 
@@ -52,16 +53,18 @@
 }
 
 - (IBAction)setWallpaper:(id)sender {
+    double parallaxFactor = self.parallaxSwitch.on ? 1.0 : 0.0;
+    
     UIAlertController *locationPicker = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     [locationPicker addAction:[UIAlertAction actionWithTitle:@"Set Lock Screen" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        setLightAndDarkWallpaperImages(self.lightImage, self.darkImage, 1);
+        setLightAndDarkWallpaperImages(self.lightImage, self.darkImage, 1, parallaxFactor);
     }]];
     [locationPicker addAction:[UIAlertAction actionWithTitle:@"Set Home Screen" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        setLightAndDarkWallpaperImages(self.lightImage, self.darkImage, 2);
+        setLightAndDarkWallpaperImages(self.lightImage, self.darkImage, 2, parallaxFactor);
     }]];
     [locationPicker addAction:[UIAlertAction actionWithTitle:@"Set Both" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        setLightAndDarkWallpaperImages(self.lightImage, self.darkImage, 3);
+        setLightAndDarkWallpaperImages(self.lightImage, self.darkImage, 3, parallaxFactor);
     }]];
     [locationPicker addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     
