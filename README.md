@@ -23,7 +23,7 @@ Before doing these steps, install AppSync Unified from the https://cydia.akemi.a
 
 2. `scp` the .app folder into `/Applications` folder on your device, from your local computer. Run this command in the Terminal _(This is probably going to ask you for your password. By default, if you haven't changed it, it should be `alpine`)_:
 	
-	`scp -rp "~/Downloads/Set Wallpaper.app" root@Your-iPhone.local:/Applications/`
+	`scp -rp ~/Downloads/Set\ Wallpaper.app root@Your-iPhone.local:/Applications/`
 	
 3. SSH into your device, and chmod the .app directory to have correct permissions. Run these lines in the Terminal:
 
@@ -42,7 +42,7 @@ Before doing these steps, install AppSync Unified from the https://cydia.akemi.a
 
 If you wish to uninstall Set Wallpaper in the future just ssh back into your device and run these lines:
 
-  `rm -r "/Applications/Set Wallpaper.app/"`
+  `rm -r /Applications/Set\ Wallpaper.app/`
   `uicache`
 	
 **Be very sure to copy the first line correctly, as you might blow away all your system applications, which would be very bad!**
