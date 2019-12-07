@@ -11,6 +11,7 @@
 #import "PHAsset+Coofdy.h"
 
 @import Photos;
+@import AVKit;
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *setWallpaperButton;
@@ -99,12 +100,12 @@
     PHAsset *asset = info[UIImagePickerControllerPHAsset];
     switch (self.currentButton) {
         case light: {
-            self.lightImage = [asset getImageFromAsset];
+            self.lightImage = [self scaleDownHighresImageIfNeeded:[asset getImageFromAsset]];
             self.lightImageView.image = self.lightImage;
         }
             break;
         case dark: {
-            self.darkImage = [asset getImageFromAsset];
+            self.darkImage = [self scaleDownHighresImageIfNeeded:[asset getImageFromAsset]];
             self.darkImageView.image = self.darkImage;
         }
     }
@@ -116,5 +117,25 @@
         }
     }];
 }
+
+
+#pragma mark - Resizing image helpers
+
+- (UIImage *)scaleDownHighresImageIfNeeded:(UIImage *)inputImage {
+    const NSInteger imageRes = 2048;
+    if (inputImage.size.width < imageRes && inputImage.size.height < imageRes) {
+        return inputImage;
+    }
+    
+    UIGraphicsImageRendererFormat *imageFormat = [UIGraphicsImageRendererFormat formatForTraitCollection:self.traitCollection];
+    imageFormat.scale = 1;
+    imageFormat.opaque = YES;
+    CGRect resizedRect = AVMakeRectWithAspectRatioInsideRect(inputImage.size, CGRectMake(0, 0, imageRes, imageRes));
+    UIGraphicsImageRenderer *imageRenderer = [[UIGraphicsImageRenderer alloc] initWithSize:resizedRect.size format:imageFormat];
+    return [imageRenderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
+        [inputImage drawInRect:CGRectMake(0, 0, resizedRect.size.width, resizedRect.size.height)];
+    }];
+}
+
 
 @end
