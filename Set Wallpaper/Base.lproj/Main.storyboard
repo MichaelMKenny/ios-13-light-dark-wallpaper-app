@@ -3,6 +3,7 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,10 +19,10 @@
                                 <rect key="frame" x="61.666666666666671" y="60" width="251.66666666666663" height="605"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LVA-oV-gBY" userLabel="Light Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="251.66666666666666" height="275"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="251.66666666666666" height="271"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Vzg-gN-yym" userLabel="Light Wallpaper Preview">
-                                                <rect key="frame" x="5" y="0.0" width="242" height="242"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Vzg-gN-yym" userLabel="Light Wallpaper Preview">
+                                                <rect key="frame" x="7" y="0.0" width="238" height="238"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="AvE-YD-H13"/>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="250" id="eqG-Dz-hE9"/>
@@ -29,7 +30,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1OA-sd-fF4">
-                                                <rect key="frame" x="24" y="242" width="204" height="33"/>
+                                                <rect key="frame" x="24" y="238" width="204" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <state key="normal" title="Choose Light Wallpaper…"/>
                                                 <connections>
@@ -43,10 +44,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IDd-mS-rC4" userLabel="Dark Stack View">
-                                        <rect key="frame" x="0.0" y="291" width="251.66666666666666" height="275"/>
+                                        <rect key="frame" x="0.0" y="287" width="251.66666666666666" height="271"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="I8V-Cv-Sxh" userLabel="Dark Wallpaper Preview">
-                                                <rect key="frame" x="5" y="0.0" width="242" height="242"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="I8V-Cv-Sxh" userLabel="Dark Wallpaper Preview">
+                                                <rect key="frame" x="7" y="0.0" width="238" height="238"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="250" id="0EO-7K-YHS"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="AxZ-n5-8XV"/>
@@ -54,7 +55,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwn-bX-zOm">
-                                                <rect key="frame" x="25.333333333333343" y="242" width="201" height="33"/>
+                                                <rect key="frame" x="25.333333333333343" y="238" width="201" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <state key="normal" title="Choose Dark Wallpaper…"/>
                                                 <connections>
@@ -68,16 +69,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HDE-bh-Qtq" userLabel="Parallax Stack View">
-                                        <rect key="frame" x="0.0" y="582" width="251.66666666666666" height="23"/>
+                                        <rect key="frame" x="0.0" y="574" width="251.66666666666666" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Perspective Zoom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxS-OD-1aC">
-                                                <rect key="frame" x="0.0" y="1.3333333333333712" width="194.66666666666666" height="20.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="5.3333333333333712" width="194.66666666666666" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dim-3E-f7p">
-                                                <rect key="frame" x="202.66666666666666" y="0.0" width="51" height="23"/>
+                                                <rect key="frame" x="202.66666666666666" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -105,6 +106,7 @@
                             <constraint firstItem="s90-z7-QCf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hDl-tB-FGo"/>
                             <constraint firstItem="s90-z7-QCf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="16" id="rCA-ZS-VfE"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="AMz-aS-Gu6"/>
                     </view>
                     <connections>
                         <outlet property="darkImageView" destination="I8V-Cv-Sxh" id="3v5-Ls-cTq"/>
